@@ -524,10 +524,15 @@ The "Seasons" argument is the number of seasons to simulate.  Obviously, the mor
 The next two are "BattingFile" and "PitchingFile."  These are files that contain the statistics for the team :  The BattingFile contains the offensive statistics of the team.  The PitchingFile contains the offensive statistics allowed by the team's pitching staff.
 
 Both files are in the following format:
+
     <At-Bats>:<Hits>:<Doubles>:<Triples>:<Home Runs>:<Walks>:<Steals>
+
     Additions:
+
     <At-Bats>:<Hits>:<Doubles>:<Triples>:<Home Runs>:<Walks>:<Steals>
+
     Subractions:
+
     <At-Bats>:<Hits>:<Doubles>:<Triples>:<Home Runs>:<Walks>:<Steals>
 
 The first line is the total team statistics.  Following "Additions", there can be multiple players statistics representing players that have been added.  Following "Subtractions", there can be multiple players that were left off the team.  Note, these are optional, but "Subtractions" must follow "Additions", even if "Additions" is blank.  Also, commented lines can be inserted, provided those lines start with '#'.
@@ -541,28 +546,45 @@ None by default.
 The following example shows the impact of Baltimore's 2004 batting changes.  Though pitching changes can be made, it will be ignored for the sake of simplicity.and to isolate the offensive changes only.  First, create a baltimore_batting file, including the total 2003 stats, the stats for the added players, and the stats for the players removed.
 
 The file contents of baltimore_batting_2003:
+
   5665:1516:277:24:152:431:89
 
 The file contents of baltimore_batting_2004:
+
   5665:1516:277:24:152:431:89
+
   Additions:
+
   #Javy Lopez
+
   465:150:29:3:43:33:0
+
   #Miguel Tejada
+
   636:98:42:27:53:10:0
+
   Subtractions:
+
   #Brook Fordyce
+
   348:95:12:2:6:19:2
+
   #Devi Cruz
+
   548:137:24:3:14:13:1
+
   #Jeff Conine
+
   493:143:33:3:15:37:0
+
   #BJ Surhoff
+
   319:94:20:5:29:2:0
 
 The pitching stats will be the just the 2003 stats.
 
 The file contents of baltimore_pitching:
+
   5683:1579:309:27:198:526:121
 
 The code to test will be:
